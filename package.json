@@ -36,5 +36,9 @@
   "peerDependencies": {
     "react-native": ">=0.47.1"
   },
-  "homepage": "https://github.com/aminebenkeroum/toggle-switch-react-native#readme"
+  "homepage": "https://github.com/aminebenkeroum/toggle-switch-react-native#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
