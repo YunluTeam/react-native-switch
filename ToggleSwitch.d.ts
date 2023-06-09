@@ -1,13 +1,19 @@
-declare module 'toggle-switch-react-native' {
-  import React from 'react';
-  import {ColorValue, StyleProp, TextStyle, ViewStyle} from 'react-native';
+declare module "@dppo/react-native-switch" {
+  import React from "react";
+  import {
+    ColorValue,
+    Insets,
+    StyleProp,
+    TextStyle,
+    ViewStyle,
+  } from "react-native";
 
   export type ToggleSwitchProps = {
     isOn: boolean;
     label?: string;
     onColor?: ColorValue;
     offColor?: ColorValue;
-    size?: 'large' | 'medium' | 'small';
+    size?: "large" | "medium" | "small";
     labelStyle?: StyleProp<TextStyle>;
     thumbOnStyle?: StyleProp<ViewStyle>;
     thumbOffStyle?: StyleProp<ViewStyle>;
