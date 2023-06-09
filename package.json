@@ -1,6 +1,6 @@
 {
-  "name": "toggle-switch-react-native",
-  "version": "3.3.0",
+  "name": "@dppo/react-native-switch",
+  "version": "0.0.1",
   "description": "Toggle Switch component for react native, it works on iOS and Android.",
   "main": "ToggleSwitch.js",
   "types": "ToggleSwitch.d.ts",

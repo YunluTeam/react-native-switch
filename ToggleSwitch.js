@@ -25,7 +25,7 @@ export default class ToggleSwitch extends React.Component {
     switch (size) {
       case "small":
         return {
-          width: 40,
+          width: 34,
           padding: 10,
           circleWidth: 15,
           circleHeight: 15,
@@ -57,11 +57,31 @@ export default class ToggleSwitch extends React.Component {
     onColor: PropTypes.string,
     offColor: PropTypes.string,
     size: PropTypes.string,
-    labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
-    thumbOnStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
-    thumbOffStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
-    trackOnStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
-    trackOffStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.number]),
+    labelStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+      PropTypes.number,
+    ]),
+    thumbOnStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+      PropTypes.number,
+    ]),
+    thumbOffStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+      PropTypes.number,
+    ]),
+    trackOnStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+      PropTypes.number,
+    ]),
+    trackOffStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object,
+      PropTypes.number,
+    ]),
     onToggle: PropTypes.func,
     icon: PropTypes.object,
     disabled: PropTypes.bool,
@@ -73,9 +93,9 @@ export default class ToggleSwitch extends React.Component {
         top: PropTypes.number,
         bottom: PropTypes.number,
         left: PropTypes.number,
-        right: PropTypes.number
-      }), 
-      PropTypes.number
+        right: PropTypes.number,
+      }),
+      PropTypes.number,
     ]),
   };
 
@@ -85,7 +105,7 @@ export default class ToggleSwitch extends React.Component {
     offColor: "#ecf0f1",
     size: "medium",
     labelStyle: {},
-    labelPosition: 'left',
+    labelPosition: "left",
     thumbOnStyle: {},
     thumbOffStyle: {},
     trackOnStyle: {},
@@ -104,14 +124,16 @@ export default class ToggleSwitch extends React.Component {
     {
       justifyContent: "center",
       width: this.dimensions.width,
-      borderRadius: Platform.OS == "windows" || Platform.OS == "macos" ? 10 : 20,
+      borderRadius:
+        Platform.OS == "windows" || Platform.OS == "macos" ? 10 : 20,
       padding: this.dimensions.padding,
       backgroundColor: this.props.isOn
         ? this.props.onColor
         : this.props.offColor,
-        paddingBottom :  Platform.OS == "windows" || Platform.OS == "macos" 
-        ? this.dimensions.padding + 2 
-        : this.dimensions.padding 
+      paddingBottom:
+        Platform.OS == "windows" || Platform.OS == "macos"
+          ? this.dimensions.padding + 2
+          : this.dimensions.padding,
     },
     this.props.isOn ? this.props.trackOnStyle : this.props.trackOffStyle,
   ];
@@ -124,9 +146,9 @@ export default class ToggleSwitch extends React.Component {
       left: Platform.OS === "web" ? 4 : 0,
       position: "absolute",
       backgroundColor: this.props.circleColor,
-      transform: [{ translateX: this.offsetX  }],
+      transform: [{ translateX: this.offsetX }],
       width: this.dimensions.circleWidth,
-      height: this.dimensions.circleHeight ,
+      height: this.dimensions.circleHeight,
       borderRadius: this.dimensions.circleWidth / 2,
       shadowColor: "#000",
       shadowOffset: {
@@ -171,20 +193,19 @@ export default class ToggleSwitch extends React.Component {
 
     return (
       <View style={styles.container} {...this.props}>
-        {label && labelPosition === 'left' ? (
+        {label && labelPosition === "left" ? (
           <Text style={[styles.labelStyle, labelStyle]}>{label}</Text>
         ) : null}
         <TouchableOpacity
           style={this.createToggleSwitchStyle()}
           activeOpacity={0.8}
           hitSlop={hitSlop}
-          onPress={() => (disabled ? null : onToggle(!isOn))}
-        >
+          onPress={() => (disabled ? null : onToggle(!isOn))}>
           <Animated.View style={this.createInsideCircleStyle()}>
             {icon}
           </Animated.View>
         </TouchableOpacity>
-        {label && labelPosition === 'right' ? (
+        {label && labelPosition === "right" ? (
           <Text style={[styles.labelStyle, labelStyle]}>{label}</Text>
         ) : null}
       </View>
